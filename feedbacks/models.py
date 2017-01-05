@@ -5,20 +5,21 @@ import datetime
 
 
 class Feedback(models.Model):
-	name = models.CharField( max_length=225, verbose_name=u'Ф.И.О.')
+	name = models.CharField( max_length=225, verbose_name=u'Ф.І.О.')
 	subject = models.CharField(max_length=255, verbose_name=u'Тема')
-	message = models.TextField(verbose_name=u'По делу')
-	from_email = models.EmailField()
-	date = models.DateTimeField(default = datetime.datetime.now, verbose_name=u'Дата размещения ')
+	message = models.TextField(verbose_name=u'Питання')
+	phone = models.CharField(max_length=100, verbose_name=u'Номер Вашого телефону')
+	from_email = models.EmailField(verbose_name=u'Ваш e-mail')
+	date = models.DateTimeField(default = datetime.datetime.now, verbose_name=u'Дата розміщення')
 
 	def __unicode__(self):
 		return self.subject
 
 class CallOrder(models.Model):
-	name = models.CharField( max_length=100, verbose_name=u'Ф.И.О.')
+	name = models.CharField( max_length=100, verbose_name=u'Ф.І.О.')
 	subject = models.CharField(max_length=100, verbose_name=u'Тема')
-	phone = models.IntegerField(max_length=100, verbose_name=u'Номер Вашего телефона')
-	date = models.DateTimeField(default = datetime.datetime.now, verbose_name=u'Дата размещения')
+	phone = models.CharField(max_length=100, verbose_name=u'Номер Вашого телефону')
+	date = models.DateTimeField(default = datetime.datetime.now, verbose_name=u'Дата розміщення')
 
 	def __unicode__(self):
 		return self.subject

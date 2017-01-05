@@ -6,7 +6,7 @@ from django.contrib import messages
 
 class NavButton(models.Model):
 	name = models.CharField(
-        max_length=20, verbose_name = u"Наименование", blank = True)
+        max_length=20, verbose_name = u"Назва кнопки", blank = True)
 	url_index = models.CharField(
         max_length=50, null = True, blank = True)
 	url_other = models.CharField(
@@ -17,7 +17,9 @@ class NavButton(models.Model):
 
 class NavLogo(models.Model):
 	name = models.CharField(
-        max_length=20, verbose_name = u"Наименование", blank = True)
+        max_length=20, verbose_name = u"Назва логотипу", blank = True)
+	name = models.CharField(
+        max_length=20, verbose_name = u"Полє на сторінці", blank = True)
 	url_index = models.CharField(
         max_length=50, null = True, blank = True)
 	url_other = models.CharField(

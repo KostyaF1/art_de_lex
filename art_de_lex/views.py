@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
 from page_content.models import PageContent
-from nav_bar import models
-from company import models
-from feedbacks import forms
+from nav_bar.models import NavButton, NavLogo
+from company.models import Contact, Service, Position, Employee, Company
+from feedbacks.forms import FeedbackForm
 
 
 def index_list(request): 

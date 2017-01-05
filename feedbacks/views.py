@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.contrib import messages
-from django.views.generic.edit import CreateView
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.core.mail import mail_admins
+from django.views.generic.edit import CreateView
 from feedbacks.models import Feedback, CallOrder
 from feedbacks.forms import FeedbackForm, CallOrderForm
 
@@ -18,12 +18,12 @@ class FeedbackView(CreateView):
     
 	def get_context_data(self, **kwargs):
 		context = super(FeedbackView, self).get_context_data(**kwargs)
-		context['title'] = "Обратная связь"
+		context['title'] = "Задати Питання"
 		return context 
 
 	def form_valid(self, form):
 		feedback = form.save()
-		messages.success(self.request, u"Спасибо за Ваше сообщение! Наш менеджер перезвонит Вам!")
+		messages.success(self.request, u"Дякуємо за Ваше питання!Ми з Вами зв'яжемося!")
 		mail_admins(feedback.subject, feedback.message)
 		return super(FeedbackView, self).form_valid(form)
 
