@@ -23,7 +23,7 @@
 		{% for company in company %}
 		<p>{{ company.name }}</p>
 			{% for employees in company.employees.all %}
-		  <a href="{% url 'company:detail1' employees.id %}"><p>{{ employees.get_full_name}}</p></a>
+		  <a href="{% url 'company:employee_detail' employees.id %}"><p>{{ employees.get_full_name}}</p></a>
 			{% endfor %}
 		{% endfor %}
 	  </div>
@@ -63,7 +63,7 @@
 <div class="services-table">
 		{% for service in company.services.all %}
 		
-        <p class="service-table-element"><a href="{% url 'company:detail' service.id %}" class="service-table-element">{{ service.name|safe }}</a></p>
+        <p class="service-table-element"><a href="{% url 'company:service_detail' service.id %}" class="service-table-element">{{ service.name|safe }}</a></p>
 
 		{% endfor %}
 {% endfor %}

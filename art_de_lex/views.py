@@ -32,7 +32,6 @@ def index_list(request):
 	nav_feedbacks = NavButton.objects.filter(url_index = 'feedback')
 	nav_logo = NavLogo.objects.all()
 	company = Company.objects.all()
-	services = Service.objects.all()
 	if request.method == 'POST':
 		feedback_index_form = FeedbackForm(request.POST)
 		if feedback_index_form.is_valid():
@@ -49,7 +48,6 @@ def index_list(request):
                   'company': company,
 				  #'feedback_index': feedback_index,
 				  'feedback_index_form': feedback_index_form,
-				  'services': services,
 				  #'contacts_content': contacts_content,
 				  #'services_content': services_content,
                   })
