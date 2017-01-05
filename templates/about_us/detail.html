@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+
+{% block nav_url %}{{ nav_button.url_other }}{% endblock nav_url %}{% block nav_buttons %}{{ nav_button.name }}{% endblock nav_buttons %}
+
+
+{% block content %}
+    <div>
+		<div class="panel panel-default">
+  		<div><h2>{{ employee.get_full_name }}</h2>
+     
+        <div class="messages">
+{% for company in company %}
+            <h4>{{ company.name }}</h4>
+          {% endfor %}
+        </div>
+       
+      </div>   
+<a href="{% url 'index' %}#company"><i class="fa fa-wrench"></i> назад на главную</a>
+
+  </div>
+
+{% endblock content %}

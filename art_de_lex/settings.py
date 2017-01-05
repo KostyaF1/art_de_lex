@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6-(%xnj@5a*c9+6+e%*j2sf^*+c6=qh3h06&e^d808f5g4xj_1'
+SECRET_KEY = 'wrat0==n_oqgrd(^mwf)6#il9k+h$%w7s_b^b!!i2$mr-xtwj#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'feedbacks',
+	'page_content',
+	'company',
+	'ckeditor',
+	'ckeditor_uploader',
+	'nav_bar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,11 +54,31 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages"
+)
+
 ROOT_URLCONF = 'art_de_lex.urls'
 
 WSGI_APPLICATION = 'art_de_lex.wsgi.application'
 
-
+'''
+CKEDITOR_CONFIGS = {
+       'default': {
+           'toolbar':[['Source', 'Link', 'Unlink', 'SpecialChar', 'Image', 'CodeSnippet']],
+           'height': 400,
+           'width': 900,
+           'removePlugins': 'stylesheetparser',
+           'extraPlugins': 'codesnippet',
+       },
+    }
+'''
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -68,7 +94,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -80,4 +106,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+#MEDIA_ROOT = "/home/kostyantin/Documents/art_de_lex2016/media/"
+
+MEDIA_URL = '/media/'
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+ADMINS = (("admin", "k_moroz@hotmail.com"))

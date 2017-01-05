@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block nav_url %}{{ nav_button.url_other }}{% endblock nav_url %}{% block nav_buttons %}{{ nav_button.name }}{% endblock nav_buttons %}
+
+
+{% block content %}
+    <div class="service-list-content">
+		<div class="service-list-content1">
+
+  		<div class="content1"><h2>{{ service.name }}</h2>
+     
+        <div>
+            <h4 class="content1">{{ service.description }}</h4>
+        
+        </div>
+       
+      </div>   
+<a class="content2" href="{% url 'index' %}#company"><i class="fa fa-wrench"></i> назад на главную</a>
+<a class="content3" href="{% url 'company:list' %}"><i class="fa fa-wrench"></i> назад к списку</a>
+
+  </div>
+</div>
+
+{% endblock content %}

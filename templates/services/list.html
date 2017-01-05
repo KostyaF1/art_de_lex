@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block nav_url %}{{ nav_button.url_other }}{% endblock nav_url %}{% block nav_buttons %}{{ nav_button.name }}{% endblock nav_buttons %}
+
+
+{% block content %}
+    <div id="services" class="service">
+<h4 class="service-content-name">{{ services_content.name }}</h4>
+<div class="services-table">
+		{% for service in services %}
+		
+        <p class="service-table-element"><a href="{% url 'company:detail' service.id %}" class="service-table-element">{{ service.name }}</a></p>
+
+		{% endfor %}
+	  </div>
+</div>
+<a href="{% url 'index' %}#company"><i class="fa fa-wrench"></i> назад на главную</a>
+
+
+{% endblock content %}
