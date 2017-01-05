@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Заказать звонок</title>
+
+  </head>
+  <body>
+    <div>
+		<div class="panel panel-default">
+  		<div><h2>{{ title }}</h2>
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <h4>{{ message }}</h4>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>   
+<a href="{% url 'index' %}"><i class="fa fa-wrench"></i> назад на главную</a>
+<form method="post">
+          {% csrf_token %}   
+
+        <h4 class="modal-title" id="exampleModalLabel">Напишите Ваше сообщение</h4>
+            <label for="recipient-name" class="control-label">{{ form.as_p }}</label>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        
+         <button type="submit" class="btn btn-primary">Отправить</button>
+          </div>
+    </div>
+  </div>
+</div>
+         </form>
+  </div>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>	
+	  <script src="{% static 'js/m_auto.js' %}"></script>   	
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </body>
+</html>

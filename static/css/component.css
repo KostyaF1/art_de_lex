@@ -1,0 +1,133 @@
+.cbp-af-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: none;
+	z-index: 10000;
+	height: 230px;
+	overflow: hidden;
+	-webkit-transition: height 0.3s;
+	-moz-transition: height 0.3s;
+	transition: height 0.3s;
+}
+
+.cbp-af-header .cbp-af-inner {
+	width: 90%;
+	max-width: 69em;
+	margin: 0 auto;
+	padding: 0 1.875em;
+}
+
+.cbp-af-header .nav-logo,
+.cbp-af-header .nav-buttons {
+	display: inline-block;
+	position: relative;
+}
+
+ /* We just have one-lined elements, so we'll center the elements with the line-height set to the height of the header */
+.cbp-af-header .nav-logo,
+.cbp-af-header .nav-buttons a {
+	line-height: 230px;
+}
+
+.cbp-af-header .nav-logo {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #333;
+	letter-spacing: 4px;
+	font-size: 4em;
+	margin: 0;
+	float: left;
+}
+
+.cbp-af-header .nav-buttons {
+	float: right;
+}
+
+.cbp-af-header .nav-buttons a {
+	font-family: 'Arial';
+	text-decoration: none;
+	color: #333;
+	font-weight: 700;
+	margin: 0 0 0 20px;
+	font-size: 1.4em;
+}
+
+.cbp-af-header .nav-buttons a:hover {
+	color: #aaa;
+}
+
+/* Transitions and class for reduced height */
+.cbp-af-header .nav-logo,
+.cbp-af-header .nav-buttons a {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.cbp-af-header.cbp-af-header-shrink {
+	/*background: #f6f6f6;*/
+	background: rgba(0, 0, 0, 0.99);
+	height: 90px;
+}
+
+.cbp-af-header.cbp-af-header-shrink .nav-logo,
+.cbp-af-header.cbp-af-header-shrink .nav-buttons a {
+	line-height: 90px;
+}
+
+.cbp-af-header.cbp-af-header-shrink .nav-logo {
+	font-size: 2em;
+}
+
+/* Example Media Queries */
+@media screen and (max-width: 55em) {
+	
+	.cbp-af-header .cbp-af-inner {
+		width: 100%;
+	}
+
+	.cbp-af-header .nav-logo,
+	.cbp-af-header .nav-buttons {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		float: none;
+	}
+
+	.cbp-af-header .nav-logo,
+	.cbp-af-header .nav-buttons a {
+		line-height: 115px;
+	}
+
+	.cbp-af-header .nav-buttons a {
+		margin: 0 10px;
+	}
+
+	.cbp-af-header.cbp-af-header-shrink .nav-logo,
+	.cbp-af-header.cbp-af-header-shrink .nav-buttons a {
+		line-height: 45px;
+	}
+
+	.cbp-af-header.cbp-af-header-shrink .nav-logo {
+		font-size: 2em;
+	}
+
+	.cbp-af-header.cbp-af-header-shrink .nav-buttons a {
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 32.25em) {
+	.cbp-af-header .nav-buttons a {
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 24em) {
+	.cbp-af-header .nav-buttons a,
+	.cbp-af-header.cbp-af-header-shrink .nav-buttons a {
+		line-height: 1;
+	}
+}

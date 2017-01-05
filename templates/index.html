@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block nav_logo_url %}{{ nav_logo.alias|safe }}{% endblock nav_logo_url %}
+
+{% block nav_url %}{{ nav_button.url_index }}{% endblock nav_url %} {% block nav_buttons %}{{ nav_button.name }}{% endblock nav_buttons %}
+
+{% block content %}
+		<div class="background-layer" style="background-image: url({{ main_page.photo.url }});" data-type="background" data-speed="5">
+      <div class="background-color-main-content">
+		
+			<div class="main-content">
+		
+            <h3 class="content1">{{ main_page.field1|safe }}</h3>
+            <p class="content2">{{ main_page.field2|safe }}</p>
+			<h3 class="content3">{{ main_page.field3|safe }}</h3>
+
+		</div>
+      </div>
+	</div>
+	  <div id="company" class="about_us">
+		{% for company in company %}
+		<p>{{ company.name }}</p>
+			{% for employees in company.employees.all %}
+		  <a href="{% url 'company:employee_detail' employees.id %}"><p>{{ employees.get_full_name}}</p></a>
+			{% endfor %}
+		{% endfor %}
+	  </div>
+	  <div id="feedback" class="feedbacks" style="background-image: url({{ feedback_index.photo.url }});">
+		<div class="feedbacks-background-color">
+	<h1 class="feedback-index-name">{{ feedback_index.name }}</h1>
+<div class="table">
+		<form method="POST">
+          {% csrf_token %}   
+		{{ feedback_index_form.non_field_errors }}
+<center><table class="form">
+    <tr><td>{{ feedback_index_form.name.errors }}</td></tr>
+    <tr><td><label style="color: white">Ваше Ім'я:</label></td></tr>
+    <tr><td>{{ feedback_index_form.name }}</td></tr>
+
+    <tr><td>{{ feedback_index_form.subject.errors }}</td></tr>
+    <tr><td><label style="color: white">Тема:</label></td></tr>
+    <tr><td>{{ feedback_index_form.subject }}</td></tr>
+
+    <tr><td>{{ feedback_index_form.message.errors }}</td></tr>
+    <tr><td><label style="color: white">Питання:</label></td></tr>
+   <tr><td>{{ feedback_index_form.message }}</td></tr>
+
+    <tr><td>{{ feedback_index_form.from_email.errors }}</td></tr>
+    <tr><td><label style="color: white">Ваш e-mail:</label></td></tr>
+   <tr><td>{{ feedback_index_form.from_email }}</td><td><button type="submit" class="btn btn-primary">Отправить</button></td></tr>
+
+</table></center>
+
+         </form>
+</div>
+</div>
+	  </div>
+<div id="services" class="service">
+	{% for company in company %}
+<h4 class="service-content-name">{{ company.name|safe }}</h4>
+<div class="services-table">
+		{% for service in company.services.all %}
+		
+        <p class="service-table-element"><a href="{% url 'company:service_detail' service.id %}" class="service-table-element">{{ service.name|safe }}</a></p>
+
+		{% endfor %}
+{% endfor %}
+</div>
+</div>
+	  <div id="contacts" class="contacts" style="background-image: url({{ contacts_content.photo.url }});">
+<div id="map">
+		<script>
+                            function initMap() {
+                                var LatLng = {lat: 49.992394669201824, lng: 36.23242000000000};
+
+                                var map = new google.maps.Map(document.getElementById("map"), {
+                                    center: LatLng,
+                                    scrollwheel: false,
+                                    zoom: 18,
+                                });
+
+                                var marker = new google.maps.Marker({
+                                    position: LatLng,
+                                    map: map,
+                                    animation: google.maps.Animation.DROP,
+                                    title: "Харків, майдан Конституції 26"
+                                });
+                                marker.setMap(map);
+
+                                var styles = [
+                                  {
+                                    featureType: "all",
+                                    stylers: [
+                                      { saturation: -80 }
+                                    ]
+                                  },{
+                                    featureType: "road",
+                                    elementType: "geometry",
+                                    stylers: [
+                                      { saturation: -20 }
+                                    ]
+                                  },{
+                                    featureType: "landscape",
+                                    elementType: "geometry.fill",
+                                    stylers: [
+                                      { saturation: -20 }
+                                    ]
+                                  }
+                                ];
+                                map.setOptions({styles: styles});
+                            }
+                        </script>
+                        
+</div>
+       
+		<p></p>
+			
+		  <a href=><p></p></a>
+			
+		  <a href="#up">Наверх</a>
+	  </div>
+{% endblock content %}
+   
