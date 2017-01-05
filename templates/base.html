@@ -38,7 +38,7 @@ return false;
       <div class="cbp-af-header">
 				<div class="cbp-af-inner">
 			{% for nav_logo in nav_logo %}
-		  <h1 class="nav-logo"><a style="color: #333;" href="{% block nav_logo_url %}{% endblock nav_logo_url %}"><i style="text-decoration: none;" class="fa fa-institution"></i></a></h1>	
+		  <h1 class="nav-logo">{% block nav_logo_url %}{% endblock nav_logo_url %}"></h1>	
 			{% endfor %}
 			<nav class="nav-buttons">
 			{% for nav_button in nav_buttons %}      

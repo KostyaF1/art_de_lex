@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 from django.shortcuts import get_object_or_404, render, redirect
 from django.core.exceptions import ObjectDoesNotExist
-from company import models
+from company.models import Contact, Service, Position, Employee, Company
 from nav_bar.models import NavButton, NavLogo
 from page_content.models import PageContent
 

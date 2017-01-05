@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block nav_logo_url %}#up{% endblock nav_logo_url %}
+{% block nav_logo_url %}{{ nav_logo.alias|safe }}{% endblock nav_logo_url %}
 
 {% block nav_url %}{{ nav_button.url_index }}{% endblock nav_url %} {% block nav_buttons %}{{ nav_button.name }}{% endblock nav_buttons %}
 
